@@ -14,3 +14,12 @@
   File "/usr/lib/python3.12/ssl.py", line 1320, in do_handshake
     self._sslobj.do_handshake()
 ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)
+
+
+wget --no-check-certificate -O - https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x93C4A3FD7BB9C367 | sudo apt-key add -
+
+sudo sh -c 'echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ansible.list'
+
+sudo apt-get update
+
+sudo apt-get install ansible
