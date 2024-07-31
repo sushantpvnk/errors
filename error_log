@@ -16,6 +16,16 @@
 ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)
 
 
+sushant@sushant-VirtualBox:~$ wget --no-check-certificate -O - https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x93C4A3FD7BB9C367 | sudo apt-key add -
+[1] 11228
+
+Redirecting output to ‘wget-log’.
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+gpg: no valid OpenPGP data found.
+
+
+
+
 wget --no-check-certificate -O - https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x93C4A3FD7BB9C367 | sudo apt-key add -
 
 sudo sh -c 'echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ansible.list'
