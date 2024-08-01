@@ -30,6 +30,32 @@ wget --no-check-certificate -O - https://keyserver.ubuntu.com/pks/lookup?op=get&
 
 sudo sh -c 'echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ansible.list'
 
+
+
+
+---
+- name : Create an ec2 instance
+  hosts : localhost
+  gather_facts:  no
+
+  tasks:
+    - name: Create an ec2 instance
+      community.aws.ec2_instances:
+        name: "myinstance"
+        region: "us-east-1"
+        instance_type: "t2.micro"
+        key_name: "demo"
+        security_groups: "sg-0f29624f60c1c9c73"
+        image-id: "ami-04a81a99f5ec58529"
+        wait: yes
+        count: 1
+      register: ec2
+
+    - name: Print instance information
+      debug:
+        var: ec2.instances
+
+
 sudo apt-get update
 
 sudo apt-get install ansible
