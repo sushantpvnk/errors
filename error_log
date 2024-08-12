@@ -91,6 +91,31 @@ wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 WantedBy=multi-user.target
 
 
+Started by user admin
+
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/sonarqube_demo
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+The recommended git tool is: NONE
+using credential github_token
+Cloning the remote Git repository
+Cloning repository https://github.com/sushantpvnk/gs-spring-boot.git
+ > git init /var/lib/jenkins/workspace/sonarqube_demo # timeout=10
+Fetching upstream changes from https://github.com/sushantpvnk/gs-spring-boot.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --force --progress -- https://github.com/sushantpvnk/gs-spring-boot.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/sushantpvnk/gs-spring-boot.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse origin/master^{commit} # timeout=10
+ERROR: Couldn't find any revision to build. Verify the repository and branch configuration for this job.
+Finished: FAILURE
+
+
 
 
 
