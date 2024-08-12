@@ -90,13 +90,13 @@ LimitNOFILE=65536
 wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 WantedBy=multi-user.target
 
-
 Started by user admin
 
 Running as SYSTEM
 Building in workspace /var/lib/jenkins/workspace/sonarqube_demo
 [WS-CLEANUP] Deleting project workspace...
 [WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
 The recommended git tool is: NONE
 using credential github_token
 Cloning the remote Git repository
@@ -110,13 +110,17 @@ using GIT_ASKPASS to set credentials
  > git config remote.origin.url https://github.com/sushantpvnk/gs-spring-boot.git # timeout=10
  > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
 Avoid second fetch
- > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
- > git rev-parse origin/master^{commit} # timeout=10
-ERROR: Couldn't find any revision to build. Verify the repository and branch configuration for this job.
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision ef888489c0ba0f0f86e3f524eecdbf5d1771d715 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f ef888489c0ba0f0f86e3f524eecdbf5d1771d715 # timeout=10
+Commit message: "Update HelloController.java"
+First time build. Skipping changelog.
+[sonarqube_demo] $ /bin/sh -xe /tmp/jenkins14342114758567619748.sh
++ mvn clean verify sonar:sonar -Dsonar.projectKey=sonarqube_demo -Dsonar.projectName=sonarqube_demo -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_0a9928cbc35f28991118f2b612433752db386fd3
+/tmp/jenkins14342114758567619748.sh: 2: mvn: not found
+Build step 'Execute shell' marked build as failure
 Finished: FAILURE
-
-
-
 
 
 
