@@ -91,3 +91,9 @@ wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 WantedBy=multi-user.target
 
 
+
+
+
+
+ngrok config add-authtoken 2kY6M3cVYiGAjPNq25oKm5xOdRk_4QbBkLTZDYXRfYRHtAwac
+
