@@ -132,3 +132,49 @@ mvn clean verify sonar:sonar \
 ngrok config add-authtoken 2kY6M3cVYiGAjPNq25oKm5xOdRk_4QbBkLTZDYXRfYRHtAwac
 
 clean verify sonar:sonar -Dsonar.projectKey=sonarqube_demo -Dsonar.projectName='sonarqube_demo' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_0a9928cbc35f28991118f2b612433752db386fd3
+
+
+Started by user admin
+
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/sonarqube_demo
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+The recommended git tool is: NONE
+using credential github_token
+Cloning the remote Git repository
+Cloning repository https://github.com/sushantpvnk/gs-spring-boot.git
+ > git init /var/lib/jenkins/workspace/sonarqube_demo # timeout=10
+Fetching upstream changes from https://github.com/sushantpvnk/gs-spring-boot.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --force --progress -- https://github.com/sushantpvnk/gs-spring-boot.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/sushantpvnk/gs-spring-boot.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision ef888489c0ba0f0f86e3f524eecdbf5d1771d715 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f ef888489c0ba0f0f86e3f524eecdbf5d1771d715 # timeout=10
+Commit message: "Update HelloController.java"
+ > git rev-list --no-walk ef888489c0ba0f0f86e3f524eecdbf5d1771d715 # timeout=10
+Unpacking https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.8/apache-maven-3.9.8-bin.zip to /var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven_demo on Jenkins
+[sonarqube_demo] $ /var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven_demo/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=sonarqube_demo -Dsonar.projectName=sonarqube_demo -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_0a9928cbc35f28991118f2b612433752db386fd3
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.374 s
+[INFO] Finished at: 2024-08-12T15:00:18+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] The goal you specified requires a project to execute but there is no POM in this directory (/var/lib/jenkins/workspace/sonarqube_demo). Please verify you invoked Maven from the correct directory. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MissingProjectException
+Build step 'Invoke top-level Maven targets' marked build as failure
+Finished: FAILURE
