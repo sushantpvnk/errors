@@ -122,6 +122,11 @@ First time build. Skipping changelog.
 Build step 'Execute shell' marked build as failure
 Finished: FAILURE
 
+mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=sonarqube_demo \
+  -Dsonar.projectName='sonarqube_demo' \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.token=sqp_0a9928cbc35f28991118f2b612433752db386fd3
 
 
 ngrok config add-authtoken 2kY6M3cVYiGAjPNq25oKm5xOdRk_4QbBkLTZDYXRfYRHtAwac
