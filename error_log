@@ -178,3 +178,33 @@ Unpacking https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9
 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MissingProjectException
 Build step 'Invoke top-level Maven targets' marked build as failure
 Finished: FAILURE
+
+
+
+
+
+
+
+# Define the host
+define host {
+    use             generic-host
+    host_name       ec2-ubuntu
+    alias           EC2 Ubuntu Instance
+    address         <ec2-instance-private-ip>  # Replace with the private IP
+    check_command   check-host-alive
+}
+
+# Define services for the host
+define service {
+    use                     generic-service
+    host_name               ec2-ubuntu
+    service_description     Disk Usage
+    check_command           check_nrpe!check_disk
+}
+
+define service {
+    use                     generic-service
+    host_name               ec2-ubuntu
+    service_description     CPU Load
+    check_command           check_nrpe!check_load
+}
