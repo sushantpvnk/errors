@@ -297,3 +297,12 @@ Total Errors:   2
      the HTML documentation regarding the config files, as well as the
      'Whats New' section to find out what has changed.
 
+
+
+
+
+
+define command {
+    command_name    check_nrpe
+    command_line    /usr/lib/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
+}
