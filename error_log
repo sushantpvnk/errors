@@ -242,3 +242,58 @@ Error: Could not register host (config file '/usr/local/nagios/etc/objects/hosts
      the HTML documentation regarding the config files, as well as the
      'Whats New' section to find out what has changed.
 
+
+
+
+
+
+sushant@sushant-VirtualBox:/usr/local/nagios/etc$ sudo /usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
+
+Nagios Core 4.4.6
+Copyright (c) 2009-present Nagios Core Development Team and Community Contributors
+Copyright (c) 1999-2009 Ethan Galstad
+Last Modified: 2020-04-28
+License: GPL
+
+Website: https://www.nagios.org
+Reading configuration data...
+   Read main config file okay...
+   Read object config files okay...
+
+Running pre-flight check on configuration data...
+
+Checking objects...
+Error: Service check command 'check_nrpe!check_load' specified in service 'CPU Load' for host 'ec2-ubuntu' not defined anywhere!
+Error: Service check command 'check_nrpe!check_disk' specified in service 'Disk Usage' for host 'ec2-ubuntu' not defined anywhere!
+	Checked 10 services.
+Warning: Host 'ec2-ubuntu' has no default contacts or contactgroups defined!
+	Checked 2 hosts.
+	Checked 1 host groups.
+	Checked 0 service groups.
+	Checked 1 contacts.
+	Checked 1 contact groups.
+	Checked 24 commands.
+	Checked 5 time periods.
+	Checked 0 host escalations.
+	Checked 0 service escalations.
+Checking for circular paths...
+	Checked 2 hosts
+	Checked 0 service dependencies
+	Checked 0 host dependencies
+	Checked 5 timeperiods
+Checking global event handlers...
+Checking obsessive compulsive processor commands...
+Checking misc settings...
+
+Total Warnings: 1
+Total Errors:   2
+
+***> One or more problems was encountered while running the pre-flight check...
+
+     Check your configuration file(s) to ensure that they contain valid
+     directives and data definitions.  If you are upgrading from a previous
+     version of Nagios, you should be aware that some variables/definitions
+     may have been removed or modified in this version.  Make sure to read
+     the HTML documentation regarding the config files, as well as the
+     'Whats New' section to find out what has changed.
+
