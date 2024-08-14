@@ -1,18 +1,8 @@
-filebeat.inputs:
-
-- type: filestream
-
-  id: my-filestream-id
-
-  enabled: true
-
-  paths:
-    - /path/to/yourfile.csv
-    # Or use a wildcard to match multiple CSV files
-    # - /path/to/yourfiles/*.csv
-
-  # Optional additional fields. These fields can be freely picked
-  # to add additional information to the crawled log files for filtering.
-  fields_under_root: true
-  fields:
-    log_type: "csv"
+filter {
+  if [log_type] == "csv" {
+    csv {
+      separator => ","
+      columns => ["name", "age", "email"]  # Adjust based on your CSV structure
+    }
+  }
+}
