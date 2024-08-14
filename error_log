@@ -1,4 +1,33 @@
-  File "/usr/lib/python3/dist-packages/httplib2/__init__.py", line 1421, in _request
+ushant@sushant-VirtualBox:~/elasticsearch-8.15.0/logs$ tail -f elasticsearch.log
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) ~[?:?]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) ~[?:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470) ~[?:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569) ~[?:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[?:?]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1570) ~[?:?]
+Caused by: org.elasticsearch.action.NoShardAvailableActionException
+[2024-08-14T11:21:47,467][INFO ][o.e.c.r.a.AllocationService] [sushant-VirtualBox] current.health="GREEN" message="Cluster health status changed from [RED] to [GREEN] (reason: [shards started [[.ds-.kibana-event-log-ds-2024.08.14-000001][0]]])." previous.health="RED" reason="shards started [[.ds-.kibana-event-log-ds-2024.08.14-000001][0]]"
+[2024-08-14T11:21:52,060][WARN ][o.e.h.n.Netty4HttpServerTransport] [sushant-VirtualBox] received plaintext http traffic on an https channel, closing connection Netty4HttpChannel{localAddress=/[0:0:0:0:0:0:0:1]:9200, remoteAddress=/[0:0:0:0:0:0:0:1]:51570}
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+File "/usr/lib/python3/dist-packages/httplib2/__init__.py", line 1421, in _request
     (response, content) = self._conn_request(conn, request_uri, method, body, headers)
                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/usr/lib/python3/dist-packages/httplib2/__init__.py", line 1343, in _conn_request
