@@ -308,6 +308,9 @@ define command {
 }
 
 
+sushant@sushant-VirtualBox:~/elasticsearch-8.15.0$ bin/elasticsearch --enrollment-token eyJ2ZXIiOiI4LjE0LjAiLCJhZHIiOlsiMTAuMC4yLjE1OjkyMDAiXSwiZmdyIjoiY2I1Y2U5M2I4NjY4Y2JjNzAyNzQxNDFiNzA4NzM0ZDA3ODI2ZjY1MWZiNGY3OWVlYThhNzkxZWM5M2U1MjUxOCIsImtleSI6IlNNRnFUNUVCMTlIekFVeE5iUlB4Ol9wRnFOV29VUk9PWEZ2cVJZd3JlVUEifQ==
+
+ERROR: Skipping security auto configuration because it appears that the node is not starting up for the first time. The node might already be part of a cluster and this auto setup utility is designed to configure Security for new clusters only., with exit code 80
 
 
 
