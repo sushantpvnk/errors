@@ -3,6 +3,19 @@ mongodb+srv://sushant:dbUserPassword@cluster0.o19fj.mongodb.net/?retryWrites=tru
 
 
 
+
++ sonar-scanner -Dsonar.projectKey=memories_sonar -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_c648599bced301a1277cd0d990b935a715845a6d
+/tmp/jenkins4012749612844178291.sh: 2: sonar-scanner: not found
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE
+
+
+
+
+
+
+
+
 Compiled with warnings.
 
 Warning
