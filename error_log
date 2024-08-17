@@ -1,41 +1,5 @@
-> Configure project :gradle-plugin
-Resolved org.jetbrains.kotlin.jvm:org.jetbrains.kotlin.jvm.gradle.plugin:1.9.24 in detachedConfiguration1 
-Resolved org.jetbrains.kotlin.jvm:org.jetbrains.kotlin.jvm.gradle.plugin:1.9.24 in :classpath 
-Project gradle-plugins-root at : is either no Android app project or build version has not been set to override. Skipping...
-
-> Configure project :gradle-plugin:react-native-gradle-plugin
-Project react-native-gradle-plugin at :react-native-gradle-plugin is either no Android app project or build version has not been set to override. Skipping...
-
-> Configure project :gradle-plugin:settings-plugin
-Project settings-plugin at :settings-plugin is either no Android app project or build version has not been set to override. Skipping...
-
-> Configure project :gradle-plugin:shared
-Project shared at :shared is either no Android app project or build version has not been set to override. Skipping...
-
-> Configure project :gradle-plugin:shared-testutil
-Project shared-testutil at :shared-testutil is either no Android app project or build version has not been set to override. Skipping...
-
-FAILURE: Build failed with an exception.
-
-* What went wrong:
-Could not resolve all dependencies for configuration 'classpath'.
-> Could not resolve project :gradle-plugin:settings-plugin.
-  Required by:
-      unspecified:unspecified:unspecified
-   > Dependency requires at least JVM runtime version 11. This build uses a Java 8 JVM.
-
-* Try:
-> Run this build using a Java 11 or newer JVM.
-> Run with --stacktrace option to get the stack trace.
-> Run with --info or --debug option to get more log output.
-> Run with --scan to get full insights.
-> Get more help at https://help.gradle.org.
-
-BUILD FAILED in 1m 28s
-Error: /Users/runner/work/1/s/android/gradlew failed with return code: 1
-    at ChildProcess.<anonymous> (/Users/runner/work/_tasks/Gradle_8d8eebd8-2b94-4c97-85af-839254cc6da4/1.128.0/node_modules/vsts-task-lib/toolrunner.js:569:30)
-    at emitTwo (events.js:106:13)
-    at ChildProcess.emit (events.js:191:7)
-    at maybeClose (internal/child_process.js:920:16)
-    at Process.ChildProcess._handle.onexit (internal/child_process.js:230:5)
-##[error]Error: /Users/runner/work/1/s/android/gradlew failed with return code: 1
+error: RPC failed; curl 92 HTTP/2 stream 5 was not closed cleanly: CANCEL (err 8)
+error: 51916 bytes of body are still expected
+fetch-pack: unexpected disconnect while reading sideband packet
+fatal: early EOF
+fatal: fetch-pack: invalid index-pack output
