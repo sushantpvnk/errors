@@ -1,1 +1,8 @@
-mongodb+srv://sushigadge:<password>@c1.jhxqi.mongodb.net/?retryWrites=true&w=majority&appName=c1
+Failed to compile.
+
+[eslint] Failed to load config "react-app" to extend from.
+Referenced from: /home/sushant/Desktop/Memories/client/package.json
+ERROR in [eslint] Failed to load config "react-app" to extend from.
+Referenced from: /home/sushant/Desktop/Memories/client/package.json
+
+webpack compiled with 1 error
