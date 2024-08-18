@@ -1,3 +1,14 @@
+ stage('Push Docker Image'){
+            steps{
+                script{
+                    withDockerRegistry(credentialsId: 'docker_cred', toolName: 'docker') {
+                        sh 'sudo docker push sushant1102/boardgame:latest'
+                        
+                    }
+                }
+            }
+        }
+
 [33m1 warning found (use docker --debug to expand):
 [0m - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 5)
 [Pipeline] }
