@@ -1,3 +1,18 @@
+KUBECONFIG = credentials('minikube-kubeconfig')
+
+stage('Deploy to Kubernetes') {
+            steps {
+                script {
+                    sh 'kubectl apply -f k8s/deployment.yaml' // Ensure kubectl is installed and configured
+                }
+            }
+        }
+
+
+
+
+
+
 sushant@sushant-VirtualBox:~$ cat ~/.kube/config
 apiVersion: v1
 clusters: null
