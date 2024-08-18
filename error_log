@@ -1,4 +1,11 @@
- stage('Push Docker Image'){
++ kubectl apply -f deployment-service.yaml
+Error in configuration: 
+* unable to read client-cert /home/sushant/.minikube/profiles/minikube/client.crt for minikube due to open /home/sushant/.minikube/profiles/minikube/client.crt: permission denied
+* unable to read client-key /home/sushant/.minikube/profiles/minikube/client.key for minikube due to open /home/sushant/.minikube/profiles/minikube/client.key: permission denied
+* unable to read certificate-authority /home/sushant/.minikube/ca.crt for minikube due to open /home/sushant/.minikube/ca.crt: permission denied
+
+
+stage('Push Docker Image'){
             steps{
                 script{
                     withDockerRegistry(credentialsId: 'docker_cred', toolName: 'docker') {
