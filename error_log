@@ -1,7 +1,8 @@
 mongodb+srv://sushant:dbUserPassword@cluster0.o19fj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 
 
-
+ERROR: Couldn't find any revision to build. Verify the repository and branch configuration for this job.
+Finished: FAILURE
 
 
 + sonar-scanner -Dsonar.projectKey=memories_sonar -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_c648599bced301a1277cd0d990b935a715845a6d
