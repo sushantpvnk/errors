@@ -1,3 +1,181 @@
+pipeline {
+    agent any
+    
+    tools{
+        jdk 'jdk17'
+        maven 'maven3'
+    }
+    
+    environment{
+        SCANNER_HOME = tool 'sonar-scanner'
+    }
+    
+    stages {
+        
+        stage('Git Checkout') {
+            steps {
+                git branch: 'main', credentialsId: 'github_token', url: 'https://github.com/sushantpvnk/Boardgame.git'
+            }
+        }
+        
+        stage('Compile'){
+            steps{
+                sh "mvn compile"
+            }
+        }
+        
+        stage('Test'){
+            steps{
+                sh "mvn test"
+            }
+        }
+        
+        stage('SonarQube Analysis'){
+            steps{
+                withSonarQubeEnv('sonar') {
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=BoardGame -Dsonar.projectKey=BoardGame \
+                            -Dsonar.java.binaries=. '''
+                }
+            }
+        }
+        
+        stage('Build'){
+            steps{
+                sh "mvn package"
+            }
+        }
+
+        stage('Build and Tag Docker Image'){
+            steps{
+                script{
+                    withDockerRegistry(credentialsId: 'docker_cred', toolName: 'docker') {
+                        sh 'docker build -t sushant1102/boardgame:latest .'
+                        
+                    }
+                }
+            }
+        }
+        
+        stage('Push Docker Image'){
+            steps{
+                script{
+                    withDockerRegistry(credentialsId: 'docker_cred', toolName: 'docker') {
+                        sh 'docker push sushant1102/boardgame:latest'
+                        
+                    }
+                }
+            }
+        }
+        
+        stage('Deploy to Kubernetes') {
+            steps {
+                script{
+                    withKubeConfig(caCertificate: '', clusterName: 'minikube', contextName: '', credentialsId: 'minkube-config', namespace: '', restrictKubeConfigAccess: false, serverUrl: 'https://192.168.49.2:8443') {
+                        sh 'kubectl apply -f deployment-service.yaml'
+                    }
+                }
+            }
+        }
+        
+        stage('Check Deployment') {
+            steps {
+                script{
+                    withKubeConfig(caCertificate: '', clusterName: 'minikube', contextName: '', credentialsId: 'minkube-config', namespace: '', restrictKubeConfigAccess: false, serverUrl: 'https://192.168.49.2:8443') {
+                        sh 'kubectl get pods'
+                        sh 'kubectl get svc'
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+
+for this pipeline code i got this error - 
+18:14:42.170 ERROR You're not authorized to analyze this project or the project doesn't exist on SonarQube and you're not authorized to create it. Please contact an administrator.
+18:14:42.256 ERROR /var/lib/jenkins/workspace/BoardGame/.git/.probe-77369b6a-ab59-44ce-a610-f618c452e837 (No such file or directory)
+java.io.FileNotFoundException: /var/lib/jenkins/workspace/BoardGame/.git/.probe-77369b6a-ab59-44ce-a610-f618c452e837 (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(Unknown Source)
+	at java.base/java.io.FileInputStream.<init>(Unknown Source)
+	at org.eclipse.jgit.util.io.SilentFileInputStream.<init>(SilentFileInputStream.java:31)
+	at org.eclipse.jgit.util.IO.readFully(IO.java:89)
+	at org.eclipse.jgit.util.IO.readFully(IO.java:48)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.read(FS.java:562)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.measureMinimalRacyInterval(FS.java:513)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.lambda$3(FS.java:450)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+18:14:42.257 ERROR java.util.concurrent.RejectedExecutionException: Task org.eclipse.jgit.util.FS$FileStoreAttributes$$Lambda$2274/0x000077951ca00208@59e0bd01 rejected from java.util.concurrent.ThreadPoolExecutor@77149b7a[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+java.util.concurrent.CompletionException: java.util.concurrent.RejectedExecutionException: Task org.eclipse.jgit.util.FS$FileStoreAttributes$$Lambda$2274/0x000077951ca00208@59e0bd01 rejected from java.util.concurrent.ThreadPoolExecutor@77149b7a[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(Unknown Source)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(Unknown Source)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.util.concurrent.RejectedExecutionException: Task org.eclipse.jgit.util.FS$FileStoreAttributes$$Lambda$2274/0x000077951ca00208@59e0bd01 rejected from java.util.concurrent.ThreadPoolExecutor@77149b7a[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.execute(Unknown Source)
+	at org.eclipse.jgit.util.FS$FileStoreAttributes.lambda$3(FS.java:457)
+	... 4 common frames omitted
+
+18:14:42.662 INFO  EXECUTION FAILURE
+18:14:42.675 INFO  Total time: 56.155s
+[Pipeline] }
+WARN: Unable to locate 'report-task.txt' in the workspace. Did the SonarScanner succeed?
+[Pipeline] // withSonarQubeEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+Stage "Build" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build and Tag Docker Image)
+Stage "Build and Tag Docker Image" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Push Docker Image)
+Stage "Push Docker Image" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy to Kubernetes)
+Stage "Deploy to Kubernetes" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Check Deployment)
+Stage "Check Deployment" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 3
+Finished: FAILURE
+
+
+
 KUBECONFIG = credentials('minikube-kubeconfig')
 
 stage('Deploy to Kubernetes') {
