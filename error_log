@@ -1,3 +1,4 @@
+https://0e27-136-226-232-205.ngrok-free.app
 
 + kubectl apply -f deployment-service.yaml
 error: error validating "deployment-service.yaml": error validating data: failed to download openapi: Get "https://192.168.49.2:8443/openapi/v2?timeout=32s": dial tcp 192.168.49.2:8443: connect: no route to host; if you choose to ignore these errors, turn validation off with --validate=false
