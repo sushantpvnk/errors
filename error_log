@@ -1,3 +1,14 @@
+ERROR: while scanning a block scalar
+ in reader, line 4, column 33:
+        certificate-authority-data: |
+                                    ^
+ the leading empty lines contain more spaces (5) than the first non-empty line.
+ in reader, line 5, column 1:
+    MIIDBjCCAe6gAwIBAgIBATANBgkqhkiG ... 
+    ^
+
+Finished: FAILURE
+
 apiVersion: v1
 clusters:
 - cluster:
