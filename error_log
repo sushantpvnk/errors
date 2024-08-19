@@ -1,3 +1,97 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data:MIIDBjCCAe6gAwIBAgIBATANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwptaW5p
+a3ViZUNBMB4XDTI0MDgxNzE4NDQ0NloXDTM0MDgxNjE4NDQ0NlowFTETMBEGA1UE
+AxMKbWluaWt1YmVDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKJN
+/lWHIjNM34QdaoZ3n1GD/1Ek3DArBY2sldUM+wuNSak1QcVFYWHwzEpnj66uCOTk
+9vyudAvLQIu3OW/iFkmk1Ci/Eul/N5BOeoChAooCV91KWKFwudLuvO3pscfjQwaE
+iFAsKncBibunqFJ+u+Dd0qHC7V8/x5UXQUHj5W2Xn3SuMyZO/Da0J8jlApoh3uSe
+pqW6Va0eULwi2dsd/DjFbW6cwGrdthfLsQEO3zxDMRr6qTXzJialhkh8oxXns/Fi
+cz/1YGAvqMrxRoKe52FGtH/vSaAVXZGfDePHc006M95Im1LBRhWsF7L+FtbuHNNP
+DBSLCIXw1ZB1POx2hikCAwEAAaNhMF8wDgYDVR0PAQH/BAQDAgKkMB0GA1UdJQQW
+MBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQW
+BBSFqQ/5ZGu3VC0O2eF8W1crFghVgTANBgkqhkiG9w0BAQsFAAOCAQEAA/KpB4te
+rlDoEieL5cYYrBLLBYLGNYIHyASsb8KEPvQ2koks0Mw+j7yl96p9wNOaFKgU7yil
+wfjKmVZoZMe6iOik683WgrVoLD4h0dTF8tfeqOfFwFm5W4HwDXuLXnh5QylPfBaM
+flkKpGgSqmwpOVapgiJ7BrohiOtnzS+oZGa7waMAYNIpvLYzZ/DYWKl2s8bF1zt2
+Lcx5eIZns0OXN7KgmZNp6lE+ykiROUddanTA9nEmXZRTtWpfyLNTv2Z2ZeGXfukR
+xOVRj6v17IU16g4TOQMKOK6jT4OpTHTsac92SViD1aG3S4vGUxTxrEZ6CKG1hpsu
+G2jKg3bnTAjQ0g==
+
+
+    extensions:
+    - extension:
+        last-update: Mon, 19 Aug 2024 00:25:07 IST
+        provider: minikube.sigs.k8s.io
+        version: v1.33.1
+      name: cluster_info
+    server: https://192.168.49.2:8443
+  name: minikube
+contexts:
+- context:
+    cluster: minikube
+    extensions:
+    - extension:
+        last-update: Mon, 19 Aug 2024 00:25:07 IST
+        provider: minikube.sigs.k8s.io
+        version: v1.33.1
+      name: context_info
+    namespace: default
+    user: minikube
+  name: minikube
+current-context: minikube
+kind: Config
+preferences: {}
+users:
+- name: minikube
+  user:
+    client-certificate-data: MIIDITCCAgmgAwIBAgIBAjANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwptaW5p
+a3ViZUNBMB4XDTI0MDgxNzE4NDQ0NloXDTI3MDgxODE4NDQ0NlowMTEXMBUGA1UE
+ChMOc3lzdGVtOm1hc3RlcnMxFjAUBgNVBAMTDW1pbmlrdWJlLXVzZXIwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC9h2Mgd4n2lvCjhSWOFk2c3tx2Wksi
+wo4aILtnrFZ9JPBjsfEGrqSqV1gAxfrpYtftODC/OC87X/UCkh8i0td08MeoeaEp
+YKxHR4fWm3zAGe+R/IugpNZS810JcnobhRPKLjVk7500FRyr7W4zju96K4hHscp8
+g94WeSk4YD8r2GGTnByB93WAdryLT5B7sDl2bXMQWAEfjYthM9+6jQu9n0u9cCEU
+1XJqgsP2/xD+We+jD2JV+HA2bvl2cK/cdSTmYxuV4l1d92tNQU9yot1hsQnhALQm
+7EHGXq/wjBHwb8r9jAhVmkWvtYFg9kUFDRqR3UhmHfqKUex6EPwjGURRAgMBAAGj
+YDBeMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUH
+AwIwDAYDVR0TAQH/BAIwADAfBgNVHSMEGDAWgBSFqQ/5ZGu3VC0O2eF8W1crFghV
+gTANBgkqhkiG9w0BAQsFAAOCAQEAZlQPTlYPiwswuacu31fR6n2Z9USLJ1d/NAyO
+f8wm0ZJ7XBkoFfaK8GMQWhKWcKp+WwYikvLWiBKR8tg4ttOnykq0GD4kaHDQkc31
+XvdG0KS1rhMNPhMm3OFvR2NDvKb3WVwIjQRN3CK7/ETWbHJbGVvtkCBIbvWHKM+f
+V4VooOLK0JlEQL4TVbIMAldtqGxE7ejRbk/yRv1r9RUSmmpACpfe7+M5Dd7ByN89
+/FXnrjuCIaF1jTfymtZitT35S/F1nn0HF8OcGnC+7EkcSnG8uyJi+KxOrrZf0wD0
++ZAZW2hy4Fbd7lUpXlm2de5SNoUq69ynNZv1JZOJSyVgjC+//A==
+
+    client-key-data: MIIEpAIBAAKCAQEAvYdjIHeJ9pbwo4UljhZNnN7cdlpLIsKOGiC7Z6xWfSTwY7Hx
+Bq6kqldYAMX66WLX7TgwvzgvO1/1ApIfItLXdPDHqHmhKWCsR0eH1pt8wBnvkfyL
+oKTWUvNdCXJ6G4UTyi41ZO+dNBUcq+1uM47veiuIR7HKfIPeFnkpOGA/K9hhk5wc
+gfd1gHa8i0+Qe7A5dm1zEFgBH42LYTPfuo0LvZ9LvXAhFNVyaoLD9v8Q/lnvow9i
+VfhwNm75dnCv3HUk5mMbleJdXfdrTUFPcqLdYbEJ4QC0JuxBxl6v8IwR8G/K/YwI
+VZpFr7WBYPZFBQ0akd1IZh36ilHsehD8IxlEUQIDAQABAoIBAQCw6greyJbQxm6T
+xPqcWjdSgjl6hKh0JvWsb/dfO+Bz6qI1/WjGWwk8NFHiTuv7JRf3yCbAp/p2ywiS
+wMEtqXATKZrFqduFG0dVNfEXo4ZcbxlQxVO0vYmOXrru0Zwnyh4B8QZIVN8COd7M
+odHncLob6TzJ56zic9lAUxLmG/l7u2DhNUQKSCPLkW8233euT4OF11CgLVl+Q9YV
+kgZsa+xrqNR/vF/3nNV/x0xF/1xadOdXW9lBtiv062LfUwqKRxgWGYpFWTei0tij
+DXv99+levQ2lYU6LkRqXA30WVVUByjGFICfukg3QJJdkwH575wJKKJZ3FuU9MelF
+MVcf1ZaRAoGBAOkE7h9lbXxNRpTLUW4aWDc00CVGdVJnvMB8tZ7D01l3vWu0A30C
+ZLZdKIcWSYgL13rk1+sD0ozOj7igjQlQv78GWezU4z86bOnDdVbBRM+GJuPDPgxF
+ANl5rCHfB3Gwyi8va/doWudk0K/zBPDYlQaiT4WQ0YkGkOZR08XD52HNAoGBANA4
+cuMOHh/mxA+Pn3cgOG1t+R95a/84lQVScSOOT6KqbW0n1uRf2rDtNvgDSflGMtru
+xWi5+BEqTQk1k8xjBJeY3SDqXmmCc9s88rjD5dFEvu3Z1qRuPjBWPyX/3Xyrbopn
+XvQrp32m6OvJnRGNJpJEd2H96fizl9HDnGJRqriVAoGAFbTg3cncBh1Iuumpv0Dz
+AMmJrj8/BJsnSSMU5CJH2Oi/m33caVPEv/wzn0njNaosu4T/3COyBG3lk4RZPwnn
+osrbq6U1OhmeNbSAhMFiQJa1nrf8WrY+2wNrlogpMF0QqI6ZVyXAehe5HPrddfYn
+A8Qw9jdEXahf7SSoPp7+Oe0CgYAjGRDMkymiyPxNfzErHGRGld4DXy1EJR6BeicW
+DjwAOGgfmTKQ5lNvtVypq6xBd4LFArCF+asGAbJglgZm0l4Iy7yier8VW+b5kql7
+WZIYl1TztN+IcgjLjw4v8pQ8Go2UiN4pnF4sQQFMFX0DY16YEzBodSuGP4ec1TM8
+I3X6jQKBgQCMPivtaHQY2dBL0KgQrXu/G75Xqfgh6doFlXDE5iiEJWEtqMCkFPhJ
+w8UR1i9f+crFGX27sqBu+dZRNK7RfE7hezv13G0xniPQtDu3BGlsQlpQ0xQdZTK0
+tm5GeM0rG9WQbyxN9qD9xwBvrSHxfF3FIw3udd59ZwsjXSDPJcuCCw==
+
+
+
 + kubectl apply -f deployment-service.yaml
 Error in configuration: 
 * unable to read client-cert /home/sushant/.minikube/profiles/minikube/client.crt for minikube due to open /home/sushant/.minikube/profiles/minikube/client.crt: permission denied
